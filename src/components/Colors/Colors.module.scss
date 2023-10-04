@@ -1,0 +1,22 @@
+@import '../../styles/break-points.scss';
+
+
+.colors {
+    display: flex;
+    position: absolute;
+    bottom: -40px;
+    gap: 10px;
+    cursor: pointer;
+    padding: 5px;
+    background-color: white;
+    z-index: 5;
+    border-radius: 10px;
+
+
+    @include laptop {
+        width: 63%;
+        flex-wrap: wrap;
+        left: 15%;
+        bottom: -70px;
+    }
+}

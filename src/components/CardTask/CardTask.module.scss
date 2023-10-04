@@ -1,0 +1,90 @@
+@import '../../styles/break-points.scss';
+
+.cardTask {
+    width: 30%;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 20px;
+    position: relative;
+    gap:10px;
+    box-shadow: 2px 2px 3px 0px #00000040;
+    
+
+    img {
+        cursor: pointer;
+    }
+    
+    .cardInfo {
+        width: 100%;
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid #D9D9D9;
+        padding-bottom: 5px;
+        input::placeholder {
+            color: black;
+            font-weight: 700;
+        }
+        
+        input {
+            margin: 0;
+        }
+    }
+
+    input, textarea {
+        border: none;
+        width: 90%;
+        margin-left: 10px;
+        background: none;
+    }
+
+    textarea {
+        resize: none;
+        height: 100%;
+        margin-top: 10px;
+    }
+
+    input:focus, textarea:focus{
+        outline: none;
+    }
+
+
+    input::placeholder {
+        font-family: Inter;
+        font-size: 13px;
+        font-weight: 400;
+        line-height: 16px;
+        letter-spacing: 0em;
+        text-align: left;
+        color: #4F4F4D;
+
+    }
+
+    .iconsDiv {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+        div {
+            display: flex;
+            gap: 5px;
+        }
+
+        img {
+            width: 15px;
+        }
+
+        img:hover{
+            border-radius: 50%;
+            padding: 5px;
+            background-color: green;
+        }
+    }
+
+}
+@include laptop {
+    .cardTask{
+        width: 70%;
+    }
+}
