@@ -2,7 +2,7 @@ import React from 'react'
 import styles from './Colors.module.scss'
 import api from '../../lib/api'
 import { ITask } from '../../types/Task'
-
+import { toast } from 'react-toastify'
 interface colorsProps {
   allTasks: ITask[]
   setAllTasks: any
@@ -25,7 +25,7 @@ export default function Colors({allTasks, setAllTasks,task, setModal} : colorsPr
           setAllTasks([...newArray])
           setModal(false)
       } catch (error) {
-        console.log(error)  
+        toast.error("A cor não foi atualizada") 
       }
 
      }

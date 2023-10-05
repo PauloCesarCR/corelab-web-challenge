@@ -5,6 +5,8 @@ import CardTask from "../../components/CardTask";
 import { useEffect, useState } from "react";
 import api from "../../lib/api";
 import { ITask } from "../../types/Task";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const Home = () => {
 
   const [allTasks, setAllTasks] = useState([])
@@ -18,7 +20,7 @@ const Home = () => {
       const { data } = await api.get("/tasks");
       setAllTasks(data);
     } catch (error) {
-      console.log(error);
+      toast.error("Erro ao carregar as tasks");
     }
   }
 
@@ -40,7 +42,7 @@ const Home = () => {
         task.favorite == false && <CardTask key={task.id}  allTasks={allTasks} setAllTasks={setAllTasks} task={task}/>
       ))}
       </div>
-
+      <ToastContainer />
     </div>
   );
 };

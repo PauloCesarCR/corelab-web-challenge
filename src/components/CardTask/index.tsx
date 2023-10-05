@@ -8,6 +8,7 @@ import { ITask } from '../../types/Task'
 import api from '../../lib/api'
 import {useState} from 'react'
 import Colors from '../Colors'
+import { toast } from 'react-toastify';
 interface PropsCard {
   task: ITask
   allTasks: ITask[]
@@ -30,9 +31,9 @@ export default function CardTask({task, allTasks, setAllTasks}: PropsCard) {
         setAllTasks(allTasks.filter((taskFilter)=>{
           return id != taskFilter.id
         }))
-        
+        toast.success("Task deletada com sucesso")
     } catch (error) {
-      console.log(error)
+        return toast.error("Não foi possivel deletar sua task")
     }
   }
 
@@ -46,10 +47,9 @@ export default function CardTask({task, allTasks, setAllTasks}: PropsCard) {
       let newArray = allTasks
       newArray[getIndex] = data;
       setAllTasks([...newArray])
-      
   } catch (error) {
-    console.log(error)
-  }
+    toast.error("Erro ao favoritar a task")
+   }
   }
 
   function editColor(id: string){
@@ -61,10 +61,9 @@ export default function CardTask({task, allTasks, setAllTasks}: PropsCard) {
 
   async function editCard(id: string, e: any){
       
-    if(!form.title || !form.description || e.key != "Enter"){
+    if(!form.title || !form.description && form.description == "" || e.key != "Enter"){
       return;
     }
-
     try {
       const {data} = await api.put(`/tasks/${id}`, {...form})
 
@@ -75,8 +74,9 @@ export default function CardTask({task, allTasks, setAllTasks}: PropsCard) {
       newArray[index] = data;
       setAllTasks([...newArray])
       setdisabledEditMode(true)
+      toast.success("Task atualizada")
     } catch (error) {
-      console.log(error)
+      toast.error("Erro ao atualizar sua task")
     }
   }
 

@@ -4,7 +4,7 @@ import styles from './NewTask.module.scss'
 import {useState} from 'react'
 import api from '../../lib/api'
 import { ITask } from '../../types/Task'
-
+import { toast } from 'react-toastify'
 interface newTaskProps {
   allTasks: ITask[]
   setAllTasks: any
@@ -27,8 +27,9 @@ export default function NewTask({allTasks, setAllTasks}: newTaskProps){
     try {
       const {data} = await api.post("/tasks", {...form, favorite})
       setAllTasks([...allTasks, {...data}])
+      toast.success("Nova task adicionada com sucesso")
     } catch (error) {
-      console.log(error)
+      toast.error("Erro ao adicionar uma nova task")
     }
   }
 
