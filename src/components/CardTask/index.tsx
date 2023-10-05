@@ -92,8 +92,8 @@ export default function CardTask({task, allTasks, setAllTasks}: PropsCard) {
       <textarea name='description' onKeyDown={(e) => editCard(task.id, e)} onChange={getInputValue} disabled={disabledEditMode} placeholder={task.description}></textarea>
       <div className={styles.iconsDiv}>
         <div>
-           <img onClick={()=> setdisabledEditMode(!disabledEditMode)} src={edit} />
-           <img onClick={()=> editColor(task.id)}  src={color} />
+           <img className={`${!disabledEditMode ? styles.borderImg : ""}`} onClick={()=> setdisabledEditMode(!disabledEditMode)} src={edit} />
+           <img className={`${modal ? styles.borderImg : ""}`} onClick={()=> editColor(task.id)}  src={color} />
         </div>
            <img onClick={()=> deleteCard(task.id)} src={close} />
       </div>

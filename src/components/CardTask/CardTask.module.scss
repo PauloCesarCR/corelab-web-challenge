@@ -1,5 +1,6 @@
 @import '../../styles/break-points.scss';
 
+
 .cardTask {
     width: 30%;
     height: 400px;
@@ -75,8 +76,11 @@
         img {
             width: 15px;
         }
-
-    
+        .borderImg {
+            background-color: rgb(195, 203, 93);
+            border-radius: 50%;
+        }
+        
     }
 
 }
