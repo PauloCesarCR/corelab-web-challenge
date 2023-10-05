@@ -24,7 +24,6 @@ export default function CardTask({task, allTasks, setAllTasks}: PropsCard) {
   }
 
   async function deleteCard(id: string){
-      console.log(id)
     try {
         await api.delete(`/tasks/${id}`)
 
