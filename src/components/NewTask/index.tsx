@@ -10,7 +10,7 @@ interface newTaskProps {
   setAllTasks: any
 }
 
-export default function NewTask({allTasks, setAllTasks}: newTaskProps ){
+export default function NewTask({allTasks, setAllTasks}: newTaskProps){
 
   const [form, setForm] = useState({title: "", description: ""})
   const [favorite, setFavorite] = useState(false)
