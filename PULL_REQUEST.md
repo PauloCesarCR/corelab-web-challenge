@@ -10,7 +10,7 @@
 
 - Abra na raiz do repo um cmd e execute o seguinte comando.
 
-- Docker compose up -d
+- docker compose up -d --build
 
 - Após o build, e os containers subirem.
 
